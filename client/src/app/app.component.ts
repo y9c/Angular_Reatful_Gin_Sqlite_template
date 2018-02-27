@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Rx';
 
 export class AppComponent {
 
-  title = 'test!';
+  title = 'Angular + Reatful + Gin + Sqlite template';
 
   public members;
   public member_name;

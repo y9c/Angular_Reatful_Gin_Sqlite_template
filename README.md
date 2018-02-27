@@ -29,6 +29,11 @@
     --------------           ----------
 
 ```
+## Fetures
+
+- Angular 5.2.0
+- golang 1.10
+- caddy 0.10.10
 
 ## Prerequisites
 
@@ -93,8 +98,9 @@ Open `http://0.0.0.0:8888/`
 - [x] split router in differnt files ([ref](https://stackoverflow.com/questions/47115731/how-to-split-my-resources-into-multiply-files))
 - [x] expose the API to the client
 - [x] use caddy Proxy for /index.html and /api
-- [ ] write a makefile
+- [x] write a makefile
 - [ ] Add Wiki page
+- [x] Add nested component in Angular client
 
 ## ISSUE
 

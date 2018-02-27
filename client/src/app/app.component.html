@@ -1,23 +1,15 @@
-<h1>
-    {{title}}
-</h1>
-<p>This is a complete mini-CRUB application using a Node back-end. See src/app/demo.service.ts for the API call code.</p>
+<h1>{{title}}</h1>
+<p>This is an Angular(Typescript) application using a Gin(golang) back-end with RESTful(CRUB) API.</p>
+<p>See ./client/src/app/demo.service.ts for the API call code.</p>
+
+<hr>
+
 <h2>Members</h2>
 <ul>
     <li *ngFor="let member of members"><input type="text" name="member-name" [(ngModel)]="member.Name"><input type="text" name="member-email" [(ngModel)]="member.Email"><button (click)="updateMember(member)">Save</button> <button (click)="deleteMember(member)">Delete</button></li>
 </ul>
 <p>Create a new member: <input type="text" name="member_name" [(ngModel)]="member_name"><button (click)="createMember(member_name)">Save</button></p>
 
-<!--<form>-->
-    <!--<div>-->
-        <!--<label for="name">Name</label>-->
-        <!--<input type="text" id="name" required>-->
-    <!--</div>-->
+<hr>
 
-    <!--<div>-->
-        <!--<label for="alterEgo">Email</label>-->
-        <!--<input type="text" id="alterEgo">-->
-    <!--</div>-->
-
-    <!--<button type="submit" class="btn btn-success">Submit</button>-->
-<!--</form>-->
+<app-plot></app-plot>
