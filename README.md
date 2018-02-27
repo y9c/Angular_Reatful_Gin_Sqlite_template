@@ -96,4 +96,5 @@ Open `http://0.0.0.0:8888/`
 - [x] expose the API to the client
 - [x] use caddy Proxy for /index.html and /api
 - [ ] write a makefile
+- [ ] Add Wiki page
 
