@@ -1,4 +1,4 @@
-# Angular Reatful Gin Sqlite template
+# `Angular + Reatful + Gin +  Sqlite` template
 
 ## Application Architecture
 
@@ -51,23 +51,22 @@ go get github.com/jinzhu/gorm
 go get github.com/jinzhu/gorm/dialects/sqlite
 ```
 
-## Run
+## Compile and Run
 
-> Compile and Run project
+Tested on linux machine only!
+
+> Run on dev machine
+
+Compile and Run project
 
 ```bash
-# build Angular static file
-cd client
-npm install
-ng build --aot
-cd ..
+make dev
+```
 
-## start API server
-go run server/main.go
+> Run on work machine
 
-## start Caddy
-ulimit -n 8192
-caddy -conf ./Caddyfile
+```bash
+make run
 ```
 
 Open `http://0.0.0.0:8888/`
@@ -78,4 +77,5 @@ Open `http://0.0.0.0:8888/`
 - [x] split router in differnt files ([ref](https://stackoverflow.com/questions/47115731/how-to-split-my-resources-into-multiply-files))
 - [x] expose the API to the client
 - [x] use caddy Proxy for /index.html and /api
+- [ ] write a makefile
 
