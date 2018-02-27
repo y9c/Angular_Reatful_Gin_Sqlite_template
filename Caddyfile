@@ -1,0 +1,11 @@
+0.0.0.0:8888 {
+  gzip
+  root ./client/dist
+  log ./log/access.log
+}
+
+0.0.0.0:8888/api {
+  proxy / 127.0.0.1:8080/api {
+    transparent
+  }
+}
