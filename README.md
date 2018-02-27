@@ -42,7 +42,7 @@ npm install --global @angular/cli
 
 - **Server**:
 
-> Go
+> Go, caddy
 
 ```bash
 go get github.com/gin-gonic/contrib/static
@@ -51,22 +51,40 @@ go get github.com/jinzhu/gorm
 go get github.com/jinzhu/gorm/dialects/sqlite
 ```
 
+```bash
+curl https://getcaddy.com | bash -s http.git,http.ratelimit
+```
+
 ## Compile and Run
 
 Tested on linux machine only!
 
-> Run on dev machine
+> Run on development environment
 
 Compile and Run project
 
 ```bash
-make dev
+# make dev
+
+cd client
+ng server &
+cd ..
+go run server/main.go &
+caddy -conf ./server/caddy/Caddyfile_dev
 ```
 
-> Run on work machine
+> Run on production environment
 
 ```bash
-make run
+# make run
+
+cd client
+ng build --prod
+cd ../server
+go build main.go
+cd ..
+./server/main
+caddy -conf ./server/caddy/Caddyfile
 ```
 
 Open `http://0.0.0.0:8888/`
