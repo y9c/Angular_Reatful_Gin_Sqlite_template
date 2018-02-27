@@ -61,8 +61,6 @@ Tested on linux machine only!
 
 > Run on development environment
 
-Compile and Run project
-
 ```bash
 # make dev
 
