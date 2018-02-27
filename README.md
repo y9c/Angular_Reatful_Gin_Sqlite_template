@@ -98,3 +98,7 @@ Open `http://0.0.0.0:8888/`
 - [ ] write a makefile
 - [ ] Add Wiki page
 
+## ISSUE
+
+- Gin model is case insensitive, but Angular is case sensitive. (May raise error)
+

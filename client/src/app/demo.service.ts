@@ -29,12 +29,12 @@ export class DemoService {
   // send a PUT request to the API to update a data object
   updateMember(member) {
     let body = JSON.stringify(member);
-    return this.http.put('/api/v1/member/' + member.id, body, httpOptions);
+    return this.http.put('/api/v1/member/' + member.ID, body, httpOptions);
   }
 
   // send a DELETE request to the API to delete a data object
   deleteMember(member) {
-    return this.http.delete('/api/v1/member/' + member.id);
+    return this.http.delete('/api/v1/member/' + member.ID);
   }
 
 }
