@@ -1,7 +1,7 @@
 0.0.0.0:8888 {
   gzip
   root ./client/dist
-  log ./log/access.log
+  log ./server/log/access.log
 }
 
 0.0.0.0:8888/api {
