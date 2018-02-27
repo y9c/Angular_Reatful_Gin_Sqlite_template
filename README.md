@@ -34,6 +34,7 @@
 - Angular 5.2.0
 - golang 1.10
 - caddy 0.10.10
+- Echarts 4.0.1
 
 ## Prerequisites
 
