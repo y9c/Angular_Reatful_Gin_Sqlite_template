@@ -1,5 +1,9 @@
 # `Angular + Reatful + Gin +  Sqlite` template
 
+## Aim
+
+The most **basic** code to show the **full** architecture
+
 ## Application Architecture
 
 ```diagram
@@ -102,6 +106,8 @@ Open `http://0.0.0.0:8888/`
 - [x] write a makefile
 - [ ] Add Wiki page
 - [x] Add nested component in Angular client
+- [ ] Add UI (Bootstrap or Antd?)
+- [ ] Use python to manipulate data layer
 
 ## ISSUE
 
