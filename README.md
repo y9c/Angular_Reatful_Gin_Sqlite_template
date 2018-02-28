@@ -39,6 +39,7 @@ The most **basic** code to show the **full** architecture
 - golang 1.10
 - caddy 0.10.10
 - Echarts 4.0.1
+- pipenv 8.3.2
 
 ## Prerequisites
 
