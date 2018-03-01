@@ -114,4 +114,5 @@ Open `http://0.0.0.0:8888/`
 ## ISSUE
 
 - Gin model is case insensitive, but Angular is case sensitive. (May raise error)
+- 'index' is meaningful in gorm, thus `where(index = ?)` trigger a bug. (database table column name)
 
