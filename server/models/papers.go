@@ -1,4 +1,4 @@
-package papers
+package models
 
 import (
 	"fmt"
@@ -6,9 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 )
-
-var db *gorm.DB
-var router *gin.Engine
 
 type Paper struct {
 	gorm.Model
@@ -21,7 +18,7 @@ type Paper struct {
 // custom and exported Init function, this will not be called automatically
 // by the go runtime like the special `init` function and therefore must be called
 // manually by the package that imports this one.
-func Init(gormdb *gorm.DB, ginrouter *gin.Engine) {
+func InitPaper(gormdb *gorm.DB, ginrouter *gin.Engine) {
 	db = gormdb // set package global
 	db.AutoMigrate(&Paper{})
 	router = ginrouter

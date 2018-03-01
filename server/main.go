@@ -3,8 +3,7 @@ package main
 import (
 	"fmt"
 
-	"./members"
-	"./papers"
+	"./models"
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
@@ -23,8 +22,8 @@ func main() {
 	router := gin.Default()
 	router.Use(static.Serve("/", static.LocalFile("./client/dist", true)))
 	// manually initialize imported packages
-	members.Init(db, router)
-	papers.Init(db, router)
+	models.InitMember(db, router)
+	models.InitPaper(db, router)
 	// run router
 	router.Run(":8080") // listen and serve on 0.0.0.0:8080
 }

@@ -109,6 +109,7 @@ Open `http://0.0.0.0:8888/`
 - [x] Add nested component in Angular client
 - [ ] Add UI (Bootstrap or Antd?)
 - [ ] Use python to manipulate data layer
+- [x] change models directory structure in server
 
 ## ISSUE
 
