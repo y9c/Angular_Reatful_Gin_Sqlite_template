@@ -3,6 +3,8 @@
 server
 
 ## directory structure
+
+```
 .
 ├── main.go
 ├── models
@@ -23,3 +25,5 @@ server
     ├── caddy.run.log
     ├── gin.dev.log
     └── ng.dev.log
+
+```
