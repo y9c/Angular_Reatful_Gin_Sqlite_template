@@ -19,6 +19,7 @@ type Cell struct {
 	Anno  string  `json:"anno" gorm:"column:anno"`
 }
 
+// custom certain table name
 func (Cell) TableName() string {
 	return "tsne_Brain"
 }
@@ -32,19 +33,20 @@ func InitCell(gormdb *gorm.DB, ginrouter *gin.Engine) {
 	router = ginrouter
 	api := router.Group("/api/v1/cell")
 	{
-		api.GET("/", GetCells)
+		//api.GET("/", GetCells)
+		api.GET("/", GetCellSeries)
 		api.GET("/:id", GetCell)
 	}
 }
 
 // READ
 func GetCells(c *gin.Context) {
-	var cell []Cell
-	if err := db.Find(&cell).Error; err != nil {
+	var cells []Cell
+	if err := db.Find(&cells).Error; err != nil {
 		c.AbortWithStatus(404)
 		fmt.Println(err)
 	} else {
-		c.JSON(200, cell)
+		c.JSON(200, cells)
 	}
 }
 
@@ -61,4 +63,30 @@ func GetCell(c *gin.Context) {
 
 // return a series for echarts
 func GetCellSeries(c *gin.Context) {
+	var cells []Cell
+	if err := db.Find(&cells).Error; err != nil {
+		c.AbortWithStatus(404)
+		fmt.Println(err)
+	} else {
+		// define series
+		type series struct {
+			SymbolSize int32       `json:"symbolSize"`
+			Data       [][]float32 `json:"data"`
+			Label      int32       `json:"label"`
+			Type       string      `json:"type"`
+		}
+		var seriesList []series
+		// define and fetch data
+		data := make(map[int32][][]float32)
+		for _, cell := range cells {
+			dl := []float32{cell.Tsne1, cell.Tsne2}
+			data[cell.Label] = append(data[cell.Label], dl)
+		}
+		// pass data to struct
+		for label, tsne := range data {
+			seriesList = append(seriesList, series{SymbolSize: 20, Data: tsne, Label: label, Type: "scatter"})
+		}
+		fmt.Println(seriesList)
+		c.JSON(200, seriesList)
+	}
 }
