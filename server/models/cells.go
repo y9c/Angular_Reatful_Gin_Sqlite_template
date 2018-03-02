@@ -84,7 +84,7 @@ func GetCellSeries(c *gin.Context) {
 		}
 		// pass data to struct
 		for label, tsne := range data {
-			seriesList = append(seriesList, series{SymbolSize: 20, Data: tsne, Label: label, Type: "scatter"})
+			seriesList = append(seriesList, series{SymbolSize: 5, Data: tsne, Label: label, Type: "scatter"})
 		}
 		fmt.Println(seriesList)
 		c.JSON(200, seriesList)

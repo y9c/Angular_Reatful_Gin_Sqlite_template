@@ -110,6 +110,7 @@ Open `http://0.0.0.0:8888/`
 - [ ] Add UI (Bootstrap or Antd?)
 - [ ] Use python to manipulate data layer
 - [x] change models directory structure in server
+- [x] Add RxJS observer of API to plot cell data
 
 ## ISSUE
 
