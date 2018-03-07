@@ -3,21 +3,24 @@
 import os
 import shutil
 import logging
+from typing import List
+
 from urllib.request import urlopen
 import urllib.error
 
 # set logger
-LOGGER = logging.getLogger(__name__)
+LOGGER: logging.Logger = logging.getLogger(__name__)
 LOGGER.setLevel(logging.DEBUG)
 
-FILE_HANDLER = logging.FileHandler('./temp/fetch_file_logger.txt')
+FILE_HANDLER: logging.Handler = logging.FileHandler(
+    './temp/fetch_file_logger.txt')
 FILE_HANDLER.setLevel(logging.DEBUG)
 FILE_HANDLER.setFormatter(
     logging.Formatter('%(asctime)s - %(name)s - %(message)s'))
 
 LOGGER.addHandler(FILE_HANDLER)
 
-TISSUES = [
+TISSUES: List[str] = [
     "Bladder",
     "Bone-Marrow",
     "Brain",
@@ -69,10 +72,10 @@ TISSUES = [
     "Arcuate-hypothalamus-and-median-eminence",
 ]
 
-OUTPUT_DIR = "./temp/MCA"
+OUTPUT_DIR: str = "./temp/MCA"
 
 
-def downlaod_link(link, outdir=OUTPUT_DIR):
+def downlaod_link(link: str, outdir: str = OUTPUT_DIR) -> int:
     """download link into dir, and keep the filename in the link"""
     os.makedirs(outdir, exist_ok=True)
     out_file_fullname = os.path.join(OUTPUT_DIR, link.split("/")[-1])
@@ -90,10 +93,9 @@ def downlaod_link(link, outdir=OUTPUT_DIR):
         return 0
 
 
+tissue: str
 for tissue in TISSUES:
-    cell_tsne = "http://bis.zju.edu.cn/MCA/data/tissues/{}/tsne_{}.csv".format(
-        tissue, tissue)
-    marker_mca = "http://bis.zju.edu.cn/MCA/data/tissues/{}/mca_top_markers_{}.json".format(
-        tissue, tissue)
+    cell_tsne: str = f"http://bis.zju.edu.cn/MCA/data/tissues/{tissue}/tsne_{tissue}.csv"
+    marker_mca: str = f"http://bis.zju.edu.cn/MCA/data/tissues/{tissue}/mca_top_markers_{tissue}.json"
     downlaod_link(cell_tsne)
     downlaod_link(marker_mca)

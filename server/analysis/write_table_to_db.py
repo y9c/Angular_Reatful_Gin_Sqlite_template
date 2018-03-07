@@ -3,10 +3,11 @@
 Read and Write Sqlite3 database
 """
 
+from typing import List
 import sqlite3
 import pandas as pd
 
-# TISSUES = [
+# TISSUES: List[str] = [
 # "Bladder",
 # "Bone-Marrow",
 # "Brain",
@@ -58,21 +59,23 @@ import pandas as pd
 # "Arcuate-hypothalamus-and-median-eminence",
 # ]
 
-TISSUES = ["Brain"]
+TISSUES: List[str] = ["Brain"]
 
 if __name__ == '__main__':
+    tissue: str
     for tissue in TISSUES:
         # read csv file into python dataframe
-        input_table = "./temp/MCA/tsne_{}.csv".format(tissue)
-        df = pd.read_table(input_table, sep=",")
+        input_table: str = f"./temp/MCA/tsne_{tissue}.csv"
+        df: pd.DataFrame = pd.read_table(input_table, sep=",")
         # write dataframe into sqlite table
-        db = sqlite3.connect('../data/db.sqlite3')
-        db_table = "tsne_{}".format(tissue)
+        db: sqlite3.Connection = sqlite3.connect('../data/db.sqlite3')
 
         # This block of code will delete table in database!
-        cursor = db.cursor()
+        cursor: sqlite3.Cursor = db.cursor()
         cursor.execute('''DROP TABLE tsne_Brain''')
         db.commit()
 
+        db_table: str = f"tsne_{tissue}"
         df.to_sql(db_table, db, if_exists="replace", index_label="id")
+
         db.close()

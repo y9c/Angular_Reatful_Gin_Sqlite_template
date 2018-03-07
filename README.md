@@ -39,6 +39,7 @@ The most **basic** code to show the **full** architecture
 - golang 1.10
 - caddy 0.10.10
 - Echarts 4.0.1
+- python 3.6.4
 - pipenv 8.3.2
 
 ## Prerequisites
@@ -48,6 +49,7 @@ The most **basic** code to show the **full** architecture
 > Node, npm
 
 ```bash
+cd ./client
 npm install --global @angular/cli
 ```
 
@@ -64,6 +66,14 @@ go get github.com/jinzhu/gorm/dialects/sqlite
 
 ```bash
 curl https://getcaddy.com | bash -s http.git,http.ratelimit
+```
+
+> Python, pandas
+
+```bash
+pip install pipenv
+cd ./server/analysis
+pipenv install --python 3.6
 ```
 
 ## Compile and Run
@@ -98,6 +108,14 @@ caddy -conf ./server/caddy/Caddyfile
 
 Open `http://0.0.0.0:8888/`
 
+## Analysis Data
+
+```bash
+cd ./server/analysis
+
+# do something...
+```
+
 ## Changelog
 
 - [x] use gin to route both static page and API
@@ -111,6 +129,7 @@ Open `http://0.0.0.0:8888/`
 - [ ] Use python to manipulate data layer
 - [x] change models directory structure in server
 - [x] Add RxJS observer of API to plot cell data
+- [x] Add python type hinting
 
 ## ISSUE
 
